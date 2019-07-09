@@ -9,14 +9,18 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      buttonPressed: false
+      toggle: 'toggle-menu'
     };
 
     this.onClick = this.onClick.bind(this);
   }
 
   onClick() {
-    this.setState({ buttonPressed: !this.state.buttonPressed });
+    if(this.state.toggle === 'toggle-open'){
+      this.setState({toggle: 'toggle-closed'})
+    } else {
+      this.setState({toggle: 'toggle-open'})
+    }
   }
   render(){
     return (
@@ -37,6 +41,15 @@ class App extends React.Component {
             </li>
           </ul>
         </nav>
+        <div className={this.state.toggle}>
+              <ul className="drop-down">
+                <li className="menu-drop">SERVICES</li>
+                <li className="menu-drop">PORTFOLIO</li>
+                <li className="menu-drop">ABOUT</li>
+                <li className="menu-drop">TEAM</li>
+                <li className="menu-drop">CONTACT</li>
+              </ul>
+            </div>
         <header>
           <div id="title">Welcome To Our Studio!</div>
           <div id="greeting">IT'S NICE TO MEET YOU!</div>

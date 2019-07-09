@@ -24,7 +24,7 @@ header{
   align-items: center;
   height: 50vh;
   width: 100vw;
-  padding-top:125px;
+  padding-top:100px;
   font-family: 'Montserrat', sans-serif;
   color: white;
 }
@@ -62,6 +62,37 @@ button{
 .menu:hover{
   color:#FED136;
 }
+.drop-down{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  font-size: 20px;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  font-family: 'Montserrat', sans-serif;
+  flex-grow: 1;
+  cursor: pointer;
+}
+.menu-drop:hover{
+  color:#FED136;
+}
+.toggle-menu, .toggle-open, .toggle-closed {
+  width: 100vw;
+  height: 25vh;
+  top: 0px;
+  z-index: -10;
+  background-color: rgb(33,37,40)
+}
+/* .toggle-menu{
+  display: none
+} */
+.toggle-open{
+  animation: openMenu .5s forwards linear;
+}
+.toggle-closed{
+  animation: closeMenu .5s forwards linear;
+  display: none;
+}
 #btn2{
   padding: 20px;
   font-size: 20px;
@@ -78,7 +109,25 @@ font-size: 40px
   font-size: 70px;
   font-weight: 700;
 }
-@media (max-width: 992px){
+
+@keyframes closeMenu{
+  from {
+    height: 25vh;
+  } to {
+    height: 0vh;
+  }
+}
+
+@keyframes openMenu{
+  from {
+    height: 0vh;
+  } to {
+    height: 25vh;
+  }
+}
+
+
+@media only screen and (max-width: 992px){
   .menuBox{
     display: block;
   }
